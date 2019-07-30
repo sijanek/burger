@@ -1,4 +1,4 @@
-var connection = require("../config/connection.js");
+var connection = require("../config/connection");
 
 function printQuestionMarks(num) {
     var arr = [];
@@ -8,7 +8,7 @@ function printQuestionMarks(num) {
     }
   
     return arr.toString();
-  }
+  };
   
   
   function objToSql(ob) {
@@ -30,14 +30,18 @@ function printQuestionMarks(num) {
   
     
     return arr.toString();
-  }
+  };
   
   
   var orm = {
+
     selectAll: function(tableInput, cb) {
+
       var queryString = "SELECT * FROM " + tableInput + ";";
       connection.query(queryString, function(err, result) {
+
         if (err) {
+
           throw err;
         }
         cb(result);
@@ -57,11 +61,13 @@ function printQuestionMarks(num) {
   
       connection.query(queryString, vals, function(err, result) {
         if (err) {
+
           throw err;
         }
   
         cb(result);
-      });
+
+      })
     },
     // An example of objColVals would be {name: Cheeseburger, devour: true}
     updateOne: function(table, objColVals, condition, cb) {
@@ -74,28 +80,19 @@ function printQuestionMarks(num) {
   
       console.log(queryString);
       connection.query(queryString, function(err, result) {
+
         if (err) {
+
           throw err;
         }
   
         cb(result);
-      });
-    },
-    delete: function(table, condition, cb) {
-      var queryString = "DELETE FROM " + table;
-      queryString += " WHERE ";
-      queryString += condition;
-  
-      connection.query(queryString, function(err, result) {
-        if (err) {
-          throw err;
-        }
-  
-        cb(result);
-      });
+
+      })
+
     }
   };
   
-  // Export the orm object for the model (cat.js).
+    
   module.exports = orm;
   

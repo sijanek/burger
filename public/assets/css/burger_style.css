@@ -1,0 +1,23 @@
+img {
+
+    width: 10%;
+    height: 10%;
+    display: block;
+    
+}
+
+body {
+
+    background: rgb(154, 240, 225);
+}
+
+h1 {
+
+    color: rgb(12, 136, 12)
+}
+
+#submit {
+
+    background: rgb(248, 148, 198);
+    color: #fff;
+}
